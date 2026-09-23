@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            font-size: 11px;
+        }
+
+        .container {
+            width: 470px;
+            margin: 0;
+            padding: 0 7px 15px 7px;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 7px 0 1px 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 16px;
+            font-weight: bold;
+            border-top: 1px solid #222;
+        }
+
+        .descricao {
+            margin: 2px 0 5px;
+            font-size: 10px;
+        }
+
+        .obrigatorio {
+            color: red;
+        }
+
+        fieldset {
+            border: 1px solid #aaa;
+            margin: 0 0 5px 0;
+            padding: 6px 7px 7px;
+        }
+
+        legend {
+            padding: 0 3px;
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        .linha {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .campo {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .campo.pequeno {
+            flex: 0 0 160px;
+        }
+
+        .campo.medio {
+            flex: 0 0 180px;
+        }
+
+        label {
+            margin-bottom: 2px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            height: 20px;
+            padding: 2px 5px;
+            border: 1px solid #b8b8b8;
+            border-radius: 2px;
+            background: #fff;
+            font-size: 10px;
+            color: #555;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #777;
+        }
+
+        input::placeholder {
+            color: #777;
+        }
+
+        .termos {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin: 2px 0 5px 1px;
+            font-size: 9px;
+        }
+
+        .termos input {
+            width: 12px;
+            height: 12px;
+            margin: 0;
+        }
+
+        .termos a {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+
+        .btn {
+            height: 20px;
+            padding: 1px 7px;
+            border: 1px solid #999;
+            border-radius: 2px;
+            background: #eee;
+            color: #222;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ddd;
+        }
+
+        /* Mantém o formulário parecido com a proporção da imagem */
+        @media (max-width: 500px) {
+            .container {
+                width: 100%;
+            }
+
+            .linha {
+                flex-wrap: wrap;
+            }
+
+            .campo,
+            .campo.pequeno,
+            .campo.medio {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Sistema de Cadastro</h1>
+
+    <div class="descricao">
+        Preencha todos os campos abaixo para concluir seu cadastro.
+    </div>
+
+    <!-- DADOS PESSOAIS -->
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+
+        <div class="linha">
+            <div class="campo">
+                <label>Nome completo <span class="obrigatorio">*</span></label>
+                <input type="text" placeholder="Digite seu nome completo">
+            </div>
+
+            <div class="campo">
+                <label>Data de nascimento <span class="obrigatorio">*</span></label>
+                <input type="date">
+            </div>
+        </div>
+
+        <div class="linha">
+            <div class="campo">
+                <label>CPF <span class="obrigatorio">*</span></label>
+                <input type="text" placeholder="000.000.000-00">
+            </div>
+
+            <div class="campo">
+                <label>RG <span class="obrigatorio">*</span></label>
+                <input type="text" placeholder="Digite seu RG">
+            </div>
+        </div>
+
+        <div class="linha">
+            <div class="campo pequeno">
+                <label>Sexo <span class="obrigatorio">*</span></label>
+                <select>
+                    <option>Selecione</option>
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                    <option>Outro</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+
+
+    <!-- CONTATO -->
+    <fieldset>
+        <legend>Contato</legend>
+
+        <div class="linha">
+            <div class="campo">
+                <label>E-mail <span class="obrigatorio">*</span></label>
+                <input type="email" placeholder="exemplo@gmail.com">
+            </div>
+
+            <div class="campo">
+                <label>Telefone <span class="obrigatorio">*</span></label>
+                <input type="tel" placeholder="(99) 99999-9999">
+            </div>
+        </div>
+
+        <div class="linha">
+            <div class="campo">
+                <label>Endereço <span class="obrigatorio">*</span></label>
+                <input type="text" placeholder="Digite seu endereço completo">
+            </div>
+        </div>
+
+        <div class="linha">
+            <div class="campo">
+                <label>Cidade <span class="obrigatorio">*</span></label>
+                <input type="text" placeholder="Digite sua cidade">
+            </div>
+
+            <div class="campo">
+                <label>Estado <span class="obrigatorio">*</span></label>
+                <select>
+                    <option>Selecione</option>
+                    <option>AC</option>
+                    <option>AL</option>
+                    <option>AP</option>
+                    <option>AM</option>
+                    <option>BA</option>
+                    <option>CE</option>
+                    <option>DF</option>
+                    <option>ES</option>
+                    <option>GO</option>
+                    <option>MA</option>
+                    <option>MT</option>
+                    <option>MS</option>
+                    <option>MG</option>
+                    <option>PA</option>
+                    <option>PB</option>
+                    <option>PR</option>
+                    <option>PE</option>
+                    <option>PI</option>
+                    <option>RJ</option>
+                    <option>RN</option>
+                    <option>RS</option>
+                    <option>RO</option>
+                    <option>RR</option>
+                    <option>SC</option>
+                    <option>SP</option>
+                    <option>SE</option>
+                    <option>TO</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+
+
+    <!-- ACESSO -->
+    <fieldset>
+        <legend>Acesso</legend>
+
+        <div class="linha">
+            <div class="campo">
+                <label>Senha <span class="obrigatorio">*</span></label>
+                <input type="password" placeholder="Digite sua senha">
+            </div>
+
+            <div class="campo">
+                <label>Confirme a senha <span class="obrigatorio">*</span></label>
+                <input type="password" placeholder="Repita sua senha">
+            </div>
+        </div>
+    </fieldset>
+
+
+    <!-- INFORMAÇÕES ADICIONAIS -->
+    <fieldset>
+        <legend>Informações Adicionais</legend>
+
+        <div class="linha">
+            <div class="campo">
+                <label>Profissão</label>
+                <input type="text" placeholder="Digite sua profissão">
+            </div>
+
+            <div class="campo">
+                <label>Como você nos conheceu?</label>
+                <select>
+                    <option>Selecione</option>
+                    <option>Google</option>
+                    <option>Instagram</option>
+                    <option>Facebook</option>
+                    <option>Indicação</option>
+                    <option>Outro</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+
+
+    <!-- TERMOS -->
+    <div class="termos">
+        <input type="checkbox" id="termos">
+
+        <label for="termos">
+            Li e aceito os
+            <a href="#">termos de uso</a>
+            e a
+            <a href="#">política de privacidade</a>.
+        </label>
+    </div>
+
+    <button class="btn" type="submit">
+        Cadastrar
+    </button>
+
+</div>
+
+</body>
+</html>
